@@ -11,5 +11,4 @@ def rectangle():
     print(f"Altura: {altura}")
     print(f"Area: {area}")
     print(f"Perimetro: {perimetro}")
-rectangle()
 

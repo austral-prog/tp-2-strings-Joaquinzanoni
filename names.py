@@ -11,5 +11,3 @@ def names():
     print(nya. title())
     print(nya. upper())
     print("\t" + nya)
-
-names()

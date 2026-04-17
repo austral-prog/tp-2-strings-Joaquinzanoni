@@ -24,4 +24,3 @@ Linea 3"""
     print(f"Reverso: {frase[0:6][::-1]}")
     print(f"Formato: {nombre.strip()} sabe Python")
     print(multilinea)
-string_methods()

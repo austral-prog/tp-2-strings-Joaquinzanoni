@@ -70,4 +70,3 @@ def ficha():
     print(f"Promedio entero: {promedio_entero}")
     print(separador)
 
-ficha()
