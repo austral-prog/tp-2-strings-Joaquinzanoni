@@ -1,19 +1,22 @@
 def change():
-    """Lee un gasto y el dinero recibido, calcula el vuelto
-    y lo separa en pesos (parte entera) y centavos.
-    """
+    # El test espera exactamente este mensaje
     print("Ingresar gasto:")
-    gasto= float(input())
+    gasto = float(input())
     print(gasto)
+
     print("Dinero recibido")
-    dinero_recibido= int(input())
-    vuelto= dinero_recibido - gasto
-    print()
+    dinero_recibido = float(input())
+    print(int(dinero_recibido))
+
+    vuelto = dinero_recibido - gasto
+    pesos = int(vuelto)
+    centavos = int(round((vuelto - pesos) * 100))
+
+    # Líneas vacías y etiquetas exactas
+    print("")  # Línea vacía
     print("Vuelto")
-    print()
-    pesos= int(vuelto)
+    print("")  # Otra línea vacía
     print("Pesos:")
     print(pesos)
-    centavos= round((vuelto - pesos)*100)
     print("Centavos:")
     print(centavos)

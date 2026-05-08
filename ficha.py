@@ -1,56 +1,46 @@
 def ficha():
-    """Ejercicio integrador. Lee nombre, email y 3 notas, y genera una ficha
-    de alumno aplicando: strip, title, lower, upper, int, len, find, slicing,
-    reverse, replace, count, in, f-strings, strings multilínea y operaciones matemáticas.
-    """
-    # Ejercicio integrador: Generador de Ficha de Alumno
-    #
-    # Leer mediante input:
-    #   1. Nombre completo (puede tener espacios extra y mayúsculas mezcladas)
-    #   2. Email (puede tener mayúsculas)
-    #   3. Tres notas (como texto, hay que convertirlas)
-    #
-    # Generar una ficha que incluya:
-    #   - Encabezado decorativo usando un string multilínea con "="
-    #   - Nombre limpio: sin espacios extra y con formato título
-    #   - Email en minúsculas
-    #   - Cantidad de caracteres del nombre
-    #   - Iniciales: usar find para encontrar el espacio e indexar las letras
-    #   - Usuario: apellido.nombre en minúsculas
-    #   - Verificar si el email contiene @ 
-    #   - Extraer el dominio del email
-    #   - Nombre con guion bajo en vez de espacio
-    #   - Contar las 'a' en el nombre
-    #   - Código secreto: nombre invertido en mayúsculas
-    #   - Las 3 notas, su suma, promedio y promedio entero
-    #   - Cierre decorativo usando repetición de string ("=" * 24)
+    # 1. Lectura de datos
     nombre = input()
     email = input()
     nota1 = int(input())
     nota2 = int(input())
     nota3 = int(input())
+
+    # 2. Procesamiento dinámico
     nombre_limpio = nombre.strip().title()
     email_lower = email.lower()
     caracteres = len(nombre_limpio)
+
+    # Buscamos dónde está el espacio para separar nombre de apellido
     espacio = nombre_limpio.find(" ")
-    inicial1 = nombre_limpio[0]
-    inicial2 = nombre_limpio[6]
-    iniciales = inicial1 + inicial2
-    apellido = nombre_limpio[6:].lower()
-    nombre_solo = nombre_limpio[:6].lower()
-    usuario = apellido + "." + nombre_solo
+
+    # Iniciales: Primera letra y la letra después del espacio
+    iniciales = nombre_limpio[0] + nombre_limpio[espacio + 1]
+
+    # Usuario: apellido.nombre (usando el índice del espacio)
+    apellido = nombre_limpio[espacio + 1:].lower()
+    nombre_solo = nombre_limpio[:espacio].lower()
+    usuario = f"{apellido}.{nombre_solo}"
+
+    # Email: Validar y extraer dominio dinámicamente
     email_valido = "@" in email_lower
     arroba = email_lower.find("@")
-    dominio = email_lower[12:]
+    dominio = email_lower[arroba + 1:]  # Desde después del @ hasta el final
+
+    # Otros datos
     nombre_archivo = nombre_limpio.replace(" ", "_")
     cantidad_a = nombre_limpio.lower().count("a")
     codigo = nombre_limpio[::-1].upper()
+
+    # Cálculos matemáticos
     suma = nota1 + nota2 + nota3
     promedio = suma / 3
     promedio_entero = suma // 3
     separador = "=" * 24
+
+    # 3. Salida por pantalla (Ojo con los espacios exactos en FICHA DEL ALUMNO)
     print(separador)
-    print("   FICHA DEL ALUMNO")
+    print("    FICHA DEL ALUMNO")  # Fíjate que hay 4 espacios antes de FICHA
     print(separador)
     print(f"Nombre: {nombre_limpio}")
     print(f"Email: {email_lower}")
@@ -69,4 +59,3 @@ def ficha():
     print(f"Promedio: {promedio}")
     print(f"Promedio entero: {promedio_entero}")
     print(separador)
-

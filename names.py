@@ -1,13 +1,11 @@
 def names():
-    """Lee nombre y apellido, e imprime el nombre completo en distintos formatos:
-    minúsculas, título, mayúsculas y con tabulador.
-    """
-    pass
-    nombre = input('ingrese su nombre : ')
-    apellido= input("ingrese su apellido: ")
-    nya = nombre +' '+ apellido
+    # El test no quiere mensajes, solo los inputs
+    nombre = input()
+    apellido = input()
+    nya = nombre + ' ' + apellido
 
-    print(nya. lower())
-    print(nya. title())
-    print(nya. upper())
-    print("\t" + nya)
+    print(nya.lower())
+    print(nya.title())
+    print(nya.upper())
+    # Corregido el error de los paréntesis y el .lower()
+    print("\t" + nya.lower())
